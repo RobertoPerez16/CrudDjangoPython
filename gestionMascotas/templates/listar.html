@@ -1,0 +1,38 @@
+{% extends "menu.html" %}
+
+{% block body %}
+    <h1 class="text-center mt-3">Listado de Mascotas</h1>
+    <div class="container mt-3">
+        <table class="table table-condensed table-bordered">
+          <thead class="table-info">
+            <tr>
+              <th class="text-center">Código</th>
+              <th class="text-center">Nombre</th>
+              <th class="text-center">Raza</th>
+              <th class="text-center">Edad</th>
+              <th class="text-center" colspan="2">Acciones</th>
+            </tr>
+          </thead>
+          {% for mascota in mascotas %}
+              <tbody>
+                <tr>
+                    <td class="text-center">{{ mascota.codigo }}</td>
+                    <td class="text-center">{{ mascota.nombre }}</td>
+                    <td class="text-center">{{ mascota.raza }}</td>
+                    <td class="text-center">{{ mascota.edad }}</td>
+                    <td class="text-center">
+                        <a href="editar/{{ mascota.codigo }}" class="btn btn-warning">Editar</a>
+                    </td>
+                    <td class="text-center">
+                        <a href="eliminar/{{ mascota.codigo }}/" class="btn btn-danger"
+                        onclick="return confirm('¿Seguro que desea eliminar?')"
+                        >Eliminar</a>
+                    </td>
+                </tr>
+
+              </tbody>
+          {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+

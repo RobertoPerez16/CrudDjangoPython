@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% extends "menu.html" %}
+    <title>{% block title %} Crear Mascota{% endblock %}</title>
+
+</head>
+<body>
+
+    {% block body %}
+        <h1 class="text-center mt-5">Crear Mascota</h1>
+        <center>
+        <div class="container mt-3 col-6 mr-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form class="" action="/guardar/" method="post">
+                      {% csrf_token %}
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Código</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="codmascota">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nombre</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="nombre">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Raza</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="raza">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Edad</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control" name="edad">
+                        </div>
+                      </div>
+
+                      <button type="submit" class="btn btn-info btn-block">Guardar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        </center>
+
+    {% endblock %}
+</body>
+</html>
